@@ -26,4 +26,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name : first-one
-      run : echo "My first workflow/action."
+        run : echo "My first workflow/action."

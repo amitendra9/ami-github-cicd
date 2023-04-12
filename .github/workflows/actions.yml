@@ -22,3 +22,8 @@ jobs:
         run: |
           pwd
           ls -a
+  my-first-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name : first-one
+      run : echo "My first workflow/action."

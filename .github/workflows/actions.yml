@@ -1,7 +1,6 @@
 name: Action Workflows
 
-on: 
-  pull_request:
+on: push
 
 jobs:
   run-github-actions: 
@@ -15,3 +14,14 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
+      - name: Checkout 
+        uses: actions/checkout@v1
+      - name: List Files After Checkout
+        run: |
+          pwd
+          ls -a
+  my-first-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name : first-one
+        run : echo "My first workflow/action."

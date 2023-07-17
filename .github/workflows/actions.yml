@@ -21,7 +21,7 @@ jobs:
           ${{github.ref}}
           ${{github.ref_name}}
           pwd
-          ls -a
+          
   my-first-jobs:
     runs-on: ubuntu-latest
     steps:

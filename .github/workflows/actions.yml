@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@v1
       - name: List Files After Checkout
         run: |
+          ${{github.ref}}
+          ${{github.ref_name}}
           pwd
           ls -a
   my-first-jobs:

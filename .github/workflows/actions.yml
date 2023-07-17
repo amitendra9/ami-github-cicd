@@ -14,13 +14,14 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
+          echo ${{github.ref}}
+          echo ${{github.ref_name}}
       - name: Checkout 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
       - name: List Files After Checkout
         run: |
-          ${{github.ref}}
-          ${{github.ref_name}}
-          
+          pwd
+          ls -a
   my-first-jobs:
     runs-on: ubuntu-latest
     steps:

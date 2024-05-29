@@ -1,39 +1,14 @@
-name: Shell Commands 
+name: Get Repository Name 
 
-on:
-  push:
-  workflow_dispatch:
+on: [push]
 
 jobs:
-  run-shell-command:
+  print-repo-name:
     runs-on: ubuntu-latest
+
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name:  ${github_repository##*/}"
-        run: |
-          echo  ${github_repository##*/}"
-      - name: echo a string
-        run: echo "Hello World"
-        timeout-minutes: 0
-      - name: multiline script 
-        run: |
-           node -v 
-           npm -v
-      - name: python Command 
-        run: |
-          import platform 
-          print
-          (platform.processor())
-        shell: python
-  run-windwos-commands:
-    runs-on: windows-latest
-    needs: ["run-shell-command"]
-    steps:
-      - name: Directory PowerShell
-        run: Get-Location 
-      - name: Directory Bash 
-        run: pwd 
-        shell: bash 
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Print repository name
+        run: echo "Repository name is ${GITHUB_REPOSITORY##*/}"

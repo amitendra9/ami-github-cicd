@@ -1,14 +1,19 @@
 name: Shell Commands 
 
-on: 
-  push:
-    branches:
-      - main
+on:
+  workflow_dispatch:
 
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: ${{ github.repository_name }} 
+        run: |
+          echo ${{ github.repository_name }}
       - name: echo a string
         run: echo "Hello World"
         timeout-minutes: 0

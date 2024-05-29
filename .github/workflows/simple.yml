@@ -12,9 +12,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name:  ${GITHUB_REPOSITORY##*/}"
+      - name:  ${github_repository##*/}"
         run: |
-          echo  ${GITHUB_REPOSITORY##*/}"
+          echo  ${github_repository##*/}"
       - name: echo a string
         run: echo "Hello World"
         timeout-minutes: 0

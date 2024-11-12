@@ -15,6 +15,9 @@ jobs:
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
           echo ${{github.ref}}
+          echo ${{github.head_ref}}
+          echo ${{github.base_ref}}
+          echo "ccccccccc"
           echo ${{github.ref_name}}
       - name: Checkout 
         uses: actions/checkout@v1

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file_changed=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+file_changed=$(git diff --name-only $1 $2)
 echo "Files changes: $file_changed"
 
 

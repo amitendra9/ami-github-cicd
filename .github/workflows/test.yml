@@ -15,7 +15,7 @@ jobs:
 
             - name: check changes in subdirectory
               run:
-                ./.github/scripts/check-layer.sh
+                ./.github/scripts/check-layer.sh ${{ github.event.before }} ${{ github.sha }}
 
 
 

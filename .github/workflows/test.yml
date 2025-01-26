@@ -16,10 +16,8 @@ jobs:
             - name: check changes in subdirectory
               shell: bash
               run: |
-                # ./.github/scripts/check-layer.sh ${{ github.event.before }} ${{ github.sha }}
                 file_changed=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
                 echo "Files changes: $file_changed"
-
 
                 if [[ $file_changed == *"docs/terraform/"* ]]; then
                     directories_changed=$(echo "$file_changed" | grep -oE "docs/terraform/[^/]+" | sort -u )

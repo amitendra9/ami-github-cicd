@@ -15,8 +15,12 @@ jobs:
 
             - name: check changes in subdirectory
               shell: bash
+              env:
+                EVENT_BEFORE: ${{ github.event.before }}
+                GIT_SHA: ${{ github.sha }}
               run: |
-                file_changed=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+                echo "Start"
+                file_changed=$(git diff --name-only $EVENT_BEFORE $GIT_SHA)
                 echo "Files changes: $file_changed"
 
                 if [[ $file_changed == *"docs/terraform/"* ]]; then

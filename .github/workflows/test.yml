@@ -16,7 +16,6 @@ jobs:
             - name: check changes in subdirectory
               run: |
                 # ./.github/scripts/check-layer.sh ${{ github.event.before }} ${{ github.sha }}
-                #!/bin/bash
                 file_changed=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
                 echo "Files changes: $file_changed"
 

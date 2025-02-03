@@ -25,8 +25,8 @@ jobs:
                 file_changed=$(git diff --name-only $EVENT_BEFORE $GIT_SHA)
                 echo "Files changes: $file_changed"
 
-                if [[ $file_changed == *"docs/terraform/"* ]]; then
-                    directories_changed=$(echo "$file_changed" | grep -oE "docs/terraform/[^/]+" | sort -u )
+                if [[ $file_changed == *"docs/terrform/"* ]]; then
+                    directories_changed=$(echo "$file_changed" | grep -oE "docs/terrform/\K[^/]*" | sort -u | paste -sd, -)
                     echo "Directories changed: $directories_changed"
 
                     if [[ $(echo "$directories_changed" | wc -l ) -gt 1 ]]; then

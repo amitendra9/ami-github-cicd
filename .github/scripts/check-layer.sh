@@ -1,6 +1,10 @@
 #!/bin/bash
+# Iv23liNXMWc7xDX0Tpgb
+# App ID: 1123988
+# Client ID: Iv23liNXMWc7xDX0Tpgb
 
-file_changed=$(git diff --name-only "$1" "$2")
+
+file_changed=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
 echo "Files changes: $file_changed"
 
 

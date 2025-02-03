@@ -26,7 +26,7 @@ jobs:
                 echo "Files changes: $file_changed"
 
                 if [[ $file_changed == *"docs/terrform/"* ]]; then
-                    directories_changed=$(echo "$file_changed" | grep -oE "docs/terrform/\K[^/]*" | sort -u | paste -sd, -)
+                    directories_changed=$(echo "$file_changed" | grep -oP "docs/terrform/\K[^/]*" | sort -u | paste -sd, -)
                     echo "Directories changed: $directories_changed"
 
                     if [[ $(echo "$directories_changed" | wc -l ) -gt 1 ]]; then
